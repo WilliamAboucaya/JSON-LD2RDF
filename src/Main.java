@@ -42,8 +42,10 @@ public class Main {
 					out.flush();
 						
 					BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-						
-					File outputFile = new File(args[0] + "JSON-LD2RDF_out" + file.getName().split("\\.")[0] + ".xml");
+					
+					File outputDir = new File(args[0] + "JSON-LD2RDF_out");
+					outputDir.mkdir();
+					File outputFile = new File(outputDir, file.getName().split("\\.")[0] + ".xml");
 					PrintWriter pw = new PrintWriter(outputFile);
 					
 					String inputLine;
@@ -54,6 +56,8 @@ public class Main {
 					pw.flush();
 					pw.close();
 					con.disconnect();
+					
+					System.out.println("Conversion finished");
 				} catch (MalformedURLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
