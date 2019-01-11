@@ -3,7 +3,19 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;
 
+/**
+ * Helper building an HTTP request body 
+ * 
+ * @author William Aboucaya
+ */
 public class ParameterStringBuilder {
+	/**
+	 * Builds an HTTP request parameters string from a map
+	 * 
+	 * @param params a {@link Map} of couples [parameter name, associated data]
+	 * @return the formatted request body
+	 * @throws UnsupportedEncodingException
+	 */
     public static String getParamsString(Map<String, String> params) 
       throws UnsupportedEncodingException{
         StringBuilder result = new StringBuilder();
